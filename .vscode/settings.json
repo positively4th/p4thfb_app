@@ -1,0 +1,28 @@
+{
+    "launch": {
+        "configurations": [
+            {
+                "name": "Chrome 8080",
+                "request": "launch",
+                "type": "chrome",
+                "url": "http://localhost:8080",
+                "webRoot": "${workspaceFolder}/public/build",
+                "sourceMaps": true,
+                "trace": true,
+                "preLaunchTask": "npm: dev"
+            }
+        ]
+    },
+
+        "security.workspace.trust.untrustedFiles": "open",
+        "debug.allowBreakpointsEverywhere": true,
+        "python.defaultInterpreterPath": "{workspace}/venv/bin",
+        "[python]": {
+          "editor.formatOnType": true
+        },
+        "python.venvPath": "./venv",
+        "editor.formatOnSave": true,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "git.confirmSync": false
+      
+}
