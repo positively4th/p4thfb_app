@@ -9,7 +9,7 @@
   export let selectedEstimatorIds = [];
 
   $: pEstimators = asRestRunner({
-    path: ["api", "estimators"],
+    path: ["api", "estimators/"],
     query: {},
   })
     .get()

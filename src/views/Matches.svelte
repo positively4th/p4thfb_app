@@ -46,7 +46,7 @@
 
   onMount(async () => {
     competitions = await asRestRunner({
-      path: ["api", "competitions"],
+      path: ["api", "competitions/"],
     })
       .get()
       .then((resp) => {
@@ -80,7 +80,7 @@
 
   $: pRows = ((competitionns) => {
     return asRestRunner({
-      path: ["api", "matches"],
+      path: ["api", "matches/"],
       query: {
         filter: JSON.stringify(filter),
       },

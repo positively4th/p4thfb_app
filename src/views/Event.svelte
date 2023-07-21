@@ -60,7 +60,7 @@
     loadCounter += 1;
     lastFilterFetched = JSON.stringify(filter);
     return asRestRunner({
-      path: ["api", "events"],
+      path: ["api", "events/"],
       query: {
         filter: JSON.stringify(filter),
       },

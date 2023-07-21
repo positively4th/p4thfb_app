@@ -3,7 +3,7 @@ import asRestRunner from "../mixins/restrunner";
 
 function initPlotters(setter) {
   return asRestRunner({
-    path: ["api", "plotters"],
+    path: ["api", "plotters/"],
   })
     .get()
     .then((resp) => {

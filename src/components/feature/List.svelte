@@ -11,7 +11,7 @@
   let featureKeyLabelPairs = [];
 
   $: pFeatures = asRestRunner({
-    path: ["api", "features"],
+    path: ["api", "features/"],
     query: {},
   })
     .get()
