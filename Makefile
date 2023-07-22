@@ -1,25 +1,39 @@
-.PHONY: app
+.PHONY: \
+	setup setup-node_modules setup-contrib \
+	docker docker-app \
+	build dev 
 
-build: node_modules contrib
+default: setup docker
+
+all: setup docker
+
+build: setup
 	npm run build
 
-dev: contrib node_modules build
+dev: setup
 	npm run dev
 
-containers: app
+container: setup build
 
-container: node_modules contrib build
+#setup
+setup: setup-node_modules setup-contrib
 
-node_modules:
+setup-node_modules:
 	npm ci || npm install
 
-
-app:
-	docker build -t api -f app.dockerfile .
-
-contrib:
+setup-contrib:
 	make -C src/contrib
 
+
+#docker
+docker: docker-app
+
+docker-app:
+	docker build -t api -f app.dockerfile .
+
+
 clean: 
+	rm -rf node_modules
+	make -C src/contrib clean
 	docker rmi --force app 
 
