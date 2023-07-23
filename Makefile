@@ -1,7 +1,7 @@
 .PHONY: \
 	setup setup-node_modules setup-contrib \
 	docker docker-app \
-	build dev 
+	build dev-run
 
 default: setup docker
 
@@ -10,8 +10,9 @@ all: setup docker
 build: setup
 	npm run build
 
-dev: setup
+dev-run: setup
 	npm run dev
+
 
 container: setup build
 
