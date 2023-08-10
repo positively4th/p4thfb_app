@@ -49,9 +49,6 @@ function creator(model) {
   // Public functions
 
   yours.run = function (method, payload, headers) {
-    const requester = axios[method.toLowerCase()];
-    //assert(requester, 'Invalid method.');
-    //const url = encodeURI(my.url());
     const url = my.url();
     const opts = {
       headers: headers || {},
@@ -59,7 +56,12 @@ function creator(model) {
     if (yours.timeout() !== null) {
       opts.timeout = yours.timeout();
     }
-    return requester(url, payload, opts);
+    opts.method = method.toLowerCase();
+    opts.url = url;
+    if (payload) {
+      opts.data = payload;
+    }
+    return axios(opts);
   };
 
   yours.get = function (payload, headers) {
